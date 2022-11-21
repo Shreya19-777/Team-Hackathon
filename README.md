@@ -3,8 +3,10 @@ This is a program we created for our computer science class. It includes a websi
 
 A Quick Rundown of our Programs:
 1. Website
+  The website is coded using HTML, JavaScript and React to create a platform where we can share and spread awareness and information about our UN goal. It is also the platform where we have added our games and where they are being shared to everyone.
   
 2. Hangman
+  This is a game of hangman where each word is related to a quality education fact. Once the user has won 3 games they win the game and after  each round a fact about quality education is displayed.
    
 3. Math Game
   
