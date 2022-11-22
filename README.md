@@ -9,11 +9,13 @@ A Quick Rundown of our Programs:
   This is a game of hangman where each word is related to a quality education fact. Once the user has won 3 games they win the game and after  each round a fact about quality education is displayed.
    
 3. Math Game
+  Answer math questions and learn facts about education!
   
 4. Math Cart Race (C5)
   A game that has you race against a race cart to the finish line by answering math questions to speed past your opponent.
   
 5. Wordle
+  A game where you must guess a five letter word and have six guesses to do so.
   
 The Developmennt Proccess:
 When we started our project we struggled with deciding on one goal and creating a program to approach the issue. Eventually, we came to a decision, choosing to create an informational website and develop some smaller games to go along with it.
