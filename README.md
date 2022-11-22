@@ -11,6 +11,7 @@ A Quick Rundown of our Programs:
 3. Math Game
   
 4. Math Cart Race (C5)
+  A game that has you race against a race cart to the finish line by answering math questions to speed past your opponent.
   
 5. Wordle
   
