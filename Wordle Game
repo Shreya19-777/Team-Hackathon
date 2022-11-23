@@ -1,0 +1,96 @@
+//Wordle Game - Maryam Sajid
+//C
+
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+
+#define Max_Words 100
+
+bool processGuess(const char* theAnswer, const char* theGuess) 
+{
+  char clue[6] = {'-', '-', '-', '-', '-', '\0'};
+
+  bool answerFlags [5] = {false, false, false, false, false};
+
+for (int i=0; i<5; i++) 
+{
+if (theGuess[i] == theAnswer[i])  
+{
+ clue [i] = 'G';
+  answerFlags[i] = true;
+}
+}
+
+for (int i=0; i<5l; i++)
+{
+  if (clue[i] == '-')
+  {
+    for (int j=0; j<5; j++) 
+    {
+      if (theGuess[i] == theAnswer[i] && !answerFlags[j]) 
+      {
+        clue[i] = 'Y';
+        answerFlags[j] = true;
+        break;
+      }
+    }
+  }
+}
+printf("%s\n", clue);
+return strcmp(clue, "GGGGG") == 0;
+}
+
+int main ()
+{
+char** wordsList = calloc (Max_Words, sizeof(char*));
+int WordCount = 0;
+char* FiveLetterWord = malloc (6*sizeof(char));
+FILE* wordsFile = fopen("words.txt", "r");
+  
+while (fscanf(wordsFile, "%s", FiveLetterWord) != EOF && WordCount < Max_Words) 
+{
+wordsList[WordCount] = FiveLetterWord;
+WordCount++;
+FiveLetterWord = malloc (6*sizeof(char));
+} 
+fclose(wordsFile);
+
+srand(time(NULL));
+char* answer = wordsList[0];
+
+int num_of_guesses = 0;
+bool guessed_correctly = false;
+char* guess = malloc(6*sizeof(char));
+
+while (num_of_guesses < 6 && !guessed_correctly) 
+{
+  printf("Type in a five-letter word: ");
+  scanf("%s", guess);
+  printf("Your guess is %s\n", guess);
+  num_of_guesses += 1;
+
+  guessed_correctly = processGuess(answer, guess);
+}
+
+if (guessed_correctly)
+{ 
+printf("Well Done, You won the game!");
+}
+else
+{
+printf("You didn't win unfortunetly:( The correct answer was %s/n", answer);
+}
+
+for (int i=0; i<WordCount; i++) 
+{
+  free(wordsList[i]);
+}
+free(wordsList);
+free(FiveLetterWord);
+free(guess);
+  
+return 0;
+}
